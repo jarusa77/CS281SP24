@@ -34,7 +34,7 @@ public class LinkedList
 	{
 		Node temp=new Node(i);
 		
-		if(head==null)
+		if(isEmpty())
 		{
 			head=temp;
 			current=head;
@@ -83,8 +83,62 @@ public class LinkedList
 	}
 	
 	//deleteNode
+	public  void deleteCurrent()
+	{
+		if(isEmpty())
+		{
+			return;
+		}
+		
+		if(current.tail!=null)
+		{
+			current.data = current.tail.data;
+			current=current.tail;
+		}
+		else if(head==current)
+		{
+			head=null;
+			current=null;
+		}
+		else//current is last node
+		{
+			Node prevNode = head;
+			
+			while(prevNode.tail!=current)
+			{
+				prevNode=prevNode.tail;
+			}
+			prevNode.tail=null;
+			current =prevNode;
+		}
+		
+		
+		
+	}
 	
 	//findNode
+	public boolean find(int x)
+	{
+		reset();
+		if(isEmpty())
+			return false;
+		
+		if(head.data==x)
+			return true;
+		
+		while(iterate()) 
+		{
+			if(current.data==x)
+				return true;
+		}
+		return false;
+		
+		
+
+		
+		
+	}
+	
 	
 	
 	

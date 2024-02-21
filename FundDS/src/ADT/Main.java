@@ -49,6 +49,8 @@ public class Main {
 		ll.addNode(123);
 		ll.addNode(1);
 		
+		System.out.println(ll.getCurrentData());
+		
 		if(!ll.isEmpty())
 		{
 			ll.reset();
@@ -58,6 +60,32 @@ public class Main {
 
 			}while(ll.iterate());
 		}
+		System.out.println("\n\n------");
+		
+		ll.reset();
+		ll.iterate();
+		ll.iterate();
+		ll.deleteCurrent();
+		
+		if(!ll.isEmpty())
+		{
+			ll.reset();
+			do
+			{
+				System.out.println( ll.getCurrentData());
+
+			}while(ll.iterate());
+		}
+		
+		System.out.println("\n\n------");
+		
+		if(ll.find(76))
+			System.out.println("Found");
+		else
+			System.out.println("Not Found");
+		
+		ll.iterate();
+		System.out.println( ll.getCurrentData());
 
 	}
 

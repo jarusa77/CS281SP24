@@ -25,6 +25,16 @@ public class ArrayClass
 		return container[i];
 	}
 	
+	public void deleteLast()
+	{
+		if(count<=0)
+		{
+			return;
+		}
+		
+		count--;
+	}
+	
 	public boolean addNum(int n)
 	{
 				
