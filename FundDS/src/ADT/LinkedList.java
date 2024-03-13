@@ -22,7 +22,7 @@ public class LinkedList
 	
 	
 	Node head;
-	Node current;
+	Node current;//Positional
 	
 	LinkedList()
 	{
