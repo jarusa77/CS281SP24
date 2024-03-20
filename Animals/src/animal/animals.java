@@ -1,7 +1,7 @@
 package animal;
 public class animals 
 {
-	public void  main
+	public static void main(String[] args) 
 	{
 	
 	
@@ -14,6 +14,6 @@ public class animals
 	
 	Arthropods [] list= {Spider,cricket};  
 	
-	list[1].;
+	System.out.println(list[1].getName());
 	}
 }
