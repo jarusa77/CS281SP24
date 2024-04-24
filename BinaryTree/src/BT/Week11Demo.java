@@ -15,7 +15,11 @@ public class Week11Demo {
 		
 		bt.search(7);
 		
+		bt.display();
+		
 		bt.deleteNode(13);
+		
+		bt.display();
 		
 		System.out.println("Current Value: " + bt.getCurrent());
 

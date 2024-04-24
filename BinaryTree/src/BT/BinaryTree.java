@@ -196,14 +196,31 @@ public class BinaryTree
 		boolean found=false;
 		while(found ==false && iterator!=  null)
 		{
-			
-			if(iterator.left.data == child.data ||
-			   iterator.right.data == child.data)
-				found=true;
-			else if(child.data < iterator.data)
-				iterator=iterator.left;
+			if(iterator.left!=null &&
+			   iterator.right!=null) 
+			{
+				if(iterator.left.data == child.data ||
+				   iterator.right.data == child.data)
+					found=true;
+				else if(child.data < iterator.data)
+					iterator=iterator.left;
+				else
+					iterator=iterator.right;
+			}
+			else if(iterator.right==null)
+			{
+				if(iterator.left.data == child.data)
+					found=true;
+				else
+					iterator=iterator.left;
+			}
 			else
-				iterator=iterator.right;
+			{
+				if(iterator.right.data == child.data)
+					found=true;
+				else
+					iterator=iterator.right;
+			}
 		}
 		
 		return iterator;
@@ -244,5 +261,67 @@ public class BinaryTree
 		return false;
 	}
 	//Display Data list
+	
+	public void display()
+	{
+		PreOrderPrint(Root);
+		System.out.print("\n");
+		
+		PostOrderPrint(Root);
+		System.out.print("\n");
+
+		InOrderPrint(Root);
+		System.out.print("\n");
+
+	}
+	
+	private void PreOrderPrint(Node root)
+	{
+		//MLR
+		
+		//Middle
+		System.out.print(root.data);
+		System.out.print(",");
+		//Left
+		if(root.left!=null)
+			PreOrderPrint(root.left);
+		//Right
+		if(root.right!=null)
+			PreOrderPrint(root.right);
+		
+		
+	}
+	
+	private void PostOrderPrint(Node root)
+	{
+		//LRM
+		
+		
+		//Left
+		if(root.left!=null)
+			PostOrderPrint(root.left);
+		//Right
+		if(root.right!=null)
+			PostOrderPrint(root.right);
+		
+		//Middle
+		System.out.print(root.data);
+		System.out.print(",");
+	}
+	
+	private void InOrderPrint(Node root)
+	{
+		//Left
+		if(root.left!=null)
+			InOrderPrint(root.left);
+		
+		//Middle
+		System.out.print(root.data);
+		System.out.print(",");
+		
+		//Right
+		if(root.right!=null)
+			InOrderPrint(root.right);
+	}
 
 }
